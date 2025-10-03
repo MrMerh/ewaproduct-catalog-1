@@ -25,7 +25,11 @@ export default function Home() {
 
   return (
     <div className="font-sans grid grid-rows-[auto_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <header className="w-full flex justify-end gap-4 row-start-1">
+      <header className="w-full flex justify-between items-center gap-4 row-start-1">
+        <nav className="flex items-center gap-6">
+          <Link href="/" className="font-bold text-lg">Home</Link>
+          <Link href="/catalog" className="text-sm hover:underline">Catalog</Link>
+        </nav>
         {isPending ? (
           <div className="text-sm text-muted-foreground">Loading...</div>
         ) : session?.user ? (
@@ -38,14 +42,14 @@ export default function Home() {
             </Button>
           </div>
         ) : (
-          <>
+          <div className="flex gap-4">
             <Button variant="outline" size="sm" asChild>
               <Link href="/login">Sign in</Link>
             </Button>
             <Button size="sm" asChild>
               <Link href="/register">Sign up</Link>
             </Button>
-          </>
+          </div>
         )}
       </header>
 
